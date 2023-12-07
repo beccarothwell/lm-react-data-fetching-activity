@@ -18,7 +18,6 @@ export const PoemContainer: React.FC = () => {
       setIsLoading(true);
       const data = await fetch("/poetriumph.com/api/v1/poems");
       const result: PoemsResponse = await data.json();
-      //console.log(result);
       setPoems(result);
       setIsLoading(false);
     }
@@ -29,7 +28,7 @@ export const PoemContainer: React.FC = () => {
     <>
       <h1>Nature Poems: An Articifial Perspective</h1>
       <AddPoem setPoems={setPoems} />
-      <PoemsList poems={poems} isLoading={isLoading} />
+      <PoemsList poems={poems} isLoading={isLoading} setPoems={setPoems} />
     </>
   );
 };

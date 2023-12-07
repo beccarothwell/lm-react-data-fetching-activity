@@ -1,6 +1,5 @@
 import { PoemsResponse } from "./poem_container";
 import { ChangeEvent, MouseEvent, useState } from "react";
-//import { PoemItem } from "../mock_api/data";
 
 type AddPoemProps = {
   setPoems: React.Dispatch<React.SetStateAction<PoemsResponse>>;
@@ -25,7 +24,6 @@ export const AddPoem: React.FC<AddPoemProps> = ({ setPoems }) => {
 
     try {
       // This is where you'll implement some data fetching logic to POST a new poem to the API
-      //postPoems(inputData as PoemItem);
 
       const response = await fetch("/poetriumph.com/api/v1/poems", {
         method: "POST",
@@ -39,7 +37,6 @@ export const AddPoem: React.FC<AddPoemProps> = ({ setPoems }) => {
         const { poem } = await response.json();
         setPoems((currentPoems) => [...currentPoems, poem]);
       }
-      //console.log(setPoems);
     } catch (error) {
       console.log(error);
     }
